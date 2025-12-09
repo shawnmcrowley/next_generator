@@ -1,0 +1,14 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:ollama
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    volumes:
+      - ollama_data:/root/.ollama
+      - webui_data:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  webui_data:
